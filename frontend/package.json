@@ -1,0 +1,23 @@
+{
+  "name": "frontend-snmp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "next dev",
+    "build": "next build",
+    "run:prod": "next start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^3.7.1",
+    "moment": "^2.29.1",
+    "next": "^12.1.0",
+    "nextjs-cors": "^2.1.0",
+    "react": "^17.0.2",
+    "react-chartjs-2": "^4.0.1",
+    "react-datetime": "^3.1.1",
+    "react-dom": "^17.0.2"
+  }
+}
