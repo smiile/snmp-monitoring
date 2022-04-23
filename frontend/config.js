@@ -1,3 +1,3 @@
 module.exports = {
-  snmpApi: 'http://localhost:3001',
+  snmpApi: 'http://192.168.0.102:3001',
 };

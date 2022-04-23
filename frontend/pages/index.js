@@ -33,6 +33,8 @@ const chartOptions = {
       text: 'Chart.js Line Chart',
     },
   },
+  animation: false,
+
   scales: {
     xAxis: {
       ticks: {
@@ -46,12 +48,18 @@ const chartOptions = {
 moment.locale("bg");
 
 export async function getServerSideProps(context) {
-  let { deviceId } = context.query;
+  let { deviceId, startDate, endDate } = context.query;
   if (!deviceId) {
     deviceId = 1;
   }
+  if (!startDate) {
+    startDate = moment().subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss'); //one week back
+  }
+  if (!endDate) {
+    endDate = moment().format('YYYY-MM-DD HH:mm:ss');
+  }
   // Fetch data from external API
-  const measurementsResponse = await fetch(`${snmpApi}/measurements?deviceId=${deviceId}`)
+  const measurementsResponse = await fetch(`${snmpApi}/measurements?startDate=${startDate}&endDate=${endDate}&deviceId=${deviceId}`)
   const measurements = await measurementsResponse.json()
 
   const deviceResponse = await fetch(`${snmpApi}/device?id=${deviceId}`)
